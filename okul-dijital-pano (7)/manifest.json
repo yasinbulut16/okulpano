@@ -1,0 +1,17 @@
+
+{
+  "short_name": "OkulPano",
+  "name": "Okul Dijital Pano Uygulaması",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2940/2940651.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#020617",
+  "background_color": "#020617",
+  "orientation": "landscape"
+}
