@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { AppSettings, ScreenMode, DaySession } from './types';
 import { DEFAULT_SETTINGS } from './constants';
-import Board from './components/Board';
-import Settings from './components/Settings';
+// DÜZELTME: "./components/Board" yerine "./Board" yapıldı
+import Board from './Board';
+// DÜZELTME: "./components/Settings" yerine "./Settings" yapıldı
+import Settings from './Settings';
 
 const App: React.FC = () => {
   const [settings, setSettings] = useState<AppSettings>(() => {
@@ -33,14 +35,11 @@ const App: React.FC = () => {
     return () => clearInterval(timer);
   }, [settings.switchTime]);
 
-  // Android TV Kumanda Desteği
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // 'm' tuşu veya kumanda menü tuşu
       if (e.key.toLowerCase() === 'm' || e.key === 'Menu' || e.key === 'Settings' || e.key === 'F1') {
         setMode(prev => prev === 'board' ? 'settings' : 'board');
       }
-      // Geri tuşu (Back) ile ana ekrana dön
       if (e.key === 'Escape' || e.key === 'Backspace' || e.key === 'BrowserBack') {
         if (mode === 'settings') {
           setMode('board');
@@ -66,8 +65,6 @@ const App: React.FC = () => {
             session={currentSession} 
             time={currentTime} 
           />
-          
-          {/* AYARLAR MENÜSÜ TETİKLEYİCİSİ */}
           <div className="fixed top-8 right-8 z-50 flex flex-col items-end gap-2 group">
             <button 
               onClick={() => setMode('settings')}
